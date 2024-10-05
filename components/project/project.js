@@ -1,51 +1,47 @@
 import { header } from "../header/header.js";
 import { dataProyectos } from "../../data/data.js";
 
-function proyectos(){
-
+function proyectos() {
     let section = document.createElement('section');
     section.className = 'section-proyectos';
     section.appendChild(header());
     section.appendChild(listaProyectos());
 
-
     return section;
 }
 
-function listaProyectos(){
+function listaProyectos() {
     let div = document.createElement('div');
-    div.className = "Lista-proyectos";
+    div.className = "lista-proyectos";  // Ajuste en la clase
 
-    dataProyectos.forEach((proyecto)=>{
-        div.appendChild( item(proyecto.nombre, proyecto.githubPage, proyecto.github, proyecto.stacks));
+    dataProyectos.forEach((proyecto) => {
+        div.appendChild(item(proyecto.nombre, proyecto.githubPage, proyecto.github, proyecto.stacks));
     });
 
     return div;
 }
 
-
-function item(texto, github, githubPage, stacks){
+function item(texto, github, githubPage, stacks) {
     let divLista = document.createElement('div');
     divLista.className = "div-item";
-    
+
     let a = document.createElement('a');
-    a.className = "link-github-page"
-    a.href = "https://samjeronimo.github.io/Pryectos--Formulario/";
-    a.innerText = "Proyectos-Formulario";
+    a.className = "https://kristhellfp.github.io/proyecto-formularios2/";
+    a.href = githubPage;
+    a.innerText = texto;  // Ajuste para que use el nombre del proyecto
     divLista.appendChild(a);
 
     let stack = document.createElement('div');
-    stack.innerText = "[js, css, html]";
+    stack.innerText = `[${stacks.join(', ')}]`;  // Ajuste para que use las tecnologías
     divLista.appendChild(stack);
 
     let btnGithub = document.createElement('a');
     btnGithub.className = "btn-github";
-    btnGithub.href = "https://github.com/samjeronimo/Pryectos--Formulario";
+    btnGithub.href = "https://kristhellfp.github.io/proyecto-formularios2/";
     btnGithub.innerText = "Github";
     divLista.appendChild(btnGithub);
 
     return divLista;
 }
 
-
-export {proyectos};
+export { proyectos };

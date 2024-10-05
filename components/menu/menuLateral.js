@@ -2,9 +2,19 @@ function crearMenuLateral() {
     let menuLateralDiv = document.createElement('div');
     menuLateralDiv.className = "menu-lateral";
 
-    let nombreUsuario = document.createElement('h2');
-    nombreUsuario.innerText = "kristel";
-    menuLateralDiv.appendChild(nombreUsuario);
+    // Herramientas de color
+    let colorTools = document.createElement('div');
+    colorTools.className = "color-tools";
+
+    let colores = ["blue", "green", "yellow", "red", "black"];
+    
+    colores.forEach(color => {
+        let colorDiv = document.createElement('div');
+        colorDiv.className = `color-option ${color}`;
+        colorTools.appendChild(colorDiv);
+    });
+
+    menuLateralDiv.appendChild(colorTools);
 
     // Lista de proyectos
     let listaProyectos = document.createElement('ul');
@@ -29,29 +39,36 @@ function crearMenuLateral() {
         listaProyectos.appendChild(li);
     });
 
-    // Center the list
-    listaProyectos.style.display = 'flex';
-    listaProyectos.style.flexDirection = 'column';
-    listaProyectos.style.alignItems = 'center';
-
     menuLateralDiv.appendChild(listaProyectos);
 
-    // Create a form at the bottom
+    // Formulario de contacto al final
     let form = document.createElement('form');
     form.className = "contact-form";
 
-    let input = document.createElement('input');
-    input.type = 'text';
-    input.placeholder = 'Escribe tu mensaje';
-    input.className = "form-input";
+    let inputName = document.createElement('input');
+    inputName.type = 'text';
+    inputName.placeholder = 'Nombre';
+    inputName.className = "form-input";
+
+    let inputEmail = document.createElement('input');
+    inputEmail.type = 'email';
+    inputEmail.placeholder = 'Correo';
+    inputEmail.className = "form-input";
+
+    let textarea = document.createElement('textarea');
+    textarea.placeholder = 'Mensaje';
+    textarea.className = "form-textarea";
 
     let submitButton = document.createElement('button');
     submitButton.type = 'submit';
     submitButton.innerText = 'Enviar';
     submitButton.className = "form-button";
 
-    form.appendChild(input);
+    form.appendChild(inputName);
+    form.appendChild(inputEmail);
+    form.appendChild(textarea);
     form.appendChild(submitButton);
+
     menuLateralDiv.appendChild(form);
 
     return menuLateralDiv;
