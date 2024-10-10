@@ -2,7 +2,8 @@ let dataProyectos = [
     {
         nombre: "Formulario",
         descripcion: "texto texto texto",
-        github: "https://github.com/",
+        githubPage: "https://kristhellfp.github.io/formulario/",
+        github: "https://github.com/Kristhellfp/formulario",
         stacks: ["js", "css", "html"]
     },
 ];
