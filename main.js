@@ -1,24 +1,20 @@
-import { navBarDiv } from "./components/navBar/navBar.js";
-import { proyectos } from "./components/project/project.js";
-import { crearMenuLateral } from "./components/menu/menuLateral.js";
+import { navBarDiv } from "./componentes/navBar/navbar.js";
+import { proyectos } from "./componentes/proyectos/project.js";
+import { contactoSection } from "./componentes/navBar/formulario.js";
+import { contenedorHerramientas } from "./componentes/navBar/lista.js"; 
 
-/* Componentes de la página */
 let DOM = document.querySelector("#root");
 
-/* navBar */
 let navBar = document.createElement('section');
 navBar.className = "nav-bar";
 navBar.appendChild(navBarDiv);
+navBar.appendChild(contenedorHerramientas); 
+navBar.appendChild(contactoSection);
+
 DOM.appendChild(navBar);
 
-/* project */
-let proyect = document.createElement('section');
-proyect.className = "proyect";
-proyect.appendChild(proyectos()); // <------- componente
-DOM.appendChild(proyect);
+let proyectSection = document.createElement('section');
+proyectSection.className = "proyect";
+proyectSection.appendChild(proyectos());
 
-/* Menú lateral */
-let menuLateral = document.createElement('section');
-menuLateral.className = "menu-lateral";
-menuLateral.appendChild(crearMenuLateral()); // <------- añadimos el menú lateral
-DOM.appendChild(menuLateral);
+DOM.appendChild(proyectSection);
